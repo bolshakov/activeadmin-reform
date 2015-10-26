@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+  - 2.2.2
+  - ruby-head
+env:
+  matrix:
+    - RAILS_VERSION=4.2.4
+    - RAILS_VERSION=master
+matrix:
+  allow_failures:
+    - env: RAILS_VERSION=master
+    - rvm: ruby-head
+before_install: gem install bundler -v 1.10.6
