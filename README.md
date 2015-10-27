@@ -33,7 +33,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 * `bundle install`. If you need specific rails version, provide `RAILS_VERSION` environment variable: `RAILS_VERSION=4.0.0 bundle install`
-* Setup test environment: `bundle exec rake setup`
+* Setup test environment: `RAILS_ENV=test rake setup`
 * Run tests `rake`
 
 ## License

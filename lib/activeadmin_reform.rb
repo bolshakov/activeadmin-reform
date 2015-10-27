@@ -1,9 +1,13 @@
 # require 'active_support'
-# require 'active_admin'
+require 'rails/engine'
 
 module ActiveAdminReform
-  # require_relative 'activeadmin_reform/dsl'
-  # require_relative 'activeadmin_reform/resource'
-  # require_relative 'activeadmin_reform/forms'
-  # require_relative 'activeadmin_reform/resource_controller/data_access'
+  # Need engine to be absolutely sure active admin is already loaded, and run all it's hooks
+  class Railtie < Rails::Engine
+    initializer 'active_admin_reform' do
+      require 'active_admin'
+      require_relative 'activeadmin_reform/dsl'
+      require_relative 'activeadmin_reform/forms'
+    end
+  end
 end

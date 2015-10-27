@@ -1,8 +1,7 @@
 require 'reform'
 
-class AuthorForm < Reform::Form
-  property :last_name, validates: { presence: true }
-  property :name
+class CommenterForm < Reform::Form
+  property :surname, virtual: true
 
   def surname=(value)
     model.last_name = value
