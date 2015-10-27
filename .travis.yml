@@ -4,6 +4,7 @@ rvm:
   - ruby-head
 env:
   matrix:
+    - RAILS_VERSION=3.2
     - RAILS_VERSION=4.2.4
     - RAILS_VERSION=master
 matrix:
