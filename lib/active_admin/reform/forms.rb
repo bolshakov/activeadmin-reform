@@ -22,7 +22,7 @@ module ActiveAdmin
 
       def apply_form?
         case action_name
-        when 'update', 'create'
+        when 'new', 'edit', 'update', 'create'
           form_class.present?
         end
       end

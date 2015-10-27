@@ -23,7 +23,7 @@ module ActiveAdmin
         # @return [ActiveRecord::Base, Reform::Form]
         def assign_attributes(resource, attributes)
           if resource.is_a?(::Reform::Form)
-            resource.validate(*attributes)
+            resource.validate(*attributes) unless action_name == 'new'
             resource
           else
             super(resource, attributes)
