@@ -1,15 +1,18 @@
-# Activeadmin::Reform
+# ActiveAdmin Reform
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/activeadmin/reform`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem adds integration between ActiveAdmin and [Reform](https://github.com/apotonick/reform). So you may 
+ use form objects for your forms. 
 
-TODO: Delete this and the text above, and describe your gem
-
+The purpose of this gem is to provide ability to define custom ActiveAdmin-specific validations for 
+your models. Using form objects allows you to define such validations without cluttering model's code
+and simplifies building test objects.
+ 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activeadmin-reform'
+gem 'activeadmin_reform'
 ```
 
 And then execute:
@@ -18,23 +21,55 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install activeadmin-reform
+    $ gem install activeadmin_reform
 
 ## Usage
 
-TODO: Write usage instructions here
+Define your from object
+ 
+```ruby
+require 'reform'
 
-## Development
+class AuthorForm < Reform::Form
+  property :last_name, validates: { presence: true }
+  property :name
+end
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Specify form class for ActiveAdmin resource:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```ruby
+ActiveAdmin.resource Author do
+  form_class AuthorForm
+  
+  form do |f|
+    f.semantic_errors(*f.object.errors.keys)
+
+    f.inputs do
+      f.input :name
+      f.input :last_name
+    end
+
+    f.actions
+  end
+end
+```
+
+Now ActiveAdmin will use Reform form object to validate form. 
+Note, you must explicitly define form for resource.
+
+By default ActiveAdmin will not use Reform, but if you want to reopen resource and
+disable form object usage, pass `false` instead of class:
+
+```ruby
+ActiveAdmin.resource Author do
+  form_class false
+end
+```
 
 ## Contributing
 
-* `bundle install`. If you need specific rails version, provide `RAILS_VERSION` environment variable: `RAILS_VERSION=4.0.0 bundle install`
-* Setup test environment: `RAILS_ENV=test rake setup`
-* Run tests `rake`
+The [contributing guide](CONTRIBUTING.md) is a good place to start.
 
 ## License
 

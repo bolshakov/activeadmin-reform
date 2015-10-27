@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Artyom Bolshakov']
   spec.email         = ['abolshakov@spbtv.com']
 
-  spec.summary       = 'Use reform with ActiveAdmin'
-  spec.description   = 'TODO: Write a longer description or delete this line.'
+  spec.summary       = 'Integrates ActiveAdmin with Reform'
+  spec.description   = 'Provides ability to use form object in your ActiveAdmin application'
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = 'MIT'
 
@@ -22,5 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'reform', '>= 2.0'
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec', '~> 3.3'
+  spec.add_development_dependency 'rubocop', '~> 0.34.2'
 end
