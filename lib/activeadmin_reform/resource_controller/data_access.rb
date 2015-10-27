@@ -28,6 +28,6 @@ module ActiveAdminReform
       end
     end
 
-    ::ActiveAdmin::ResourceController.include(DataAccess)
+    ::ActiveAdmin::ResourceController.send(:include, DataAccess)
   end
 end

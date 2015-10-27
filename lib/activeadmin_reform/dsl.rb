@@ -20,5 +20,5 @@ module ActiveAdminReform
     end
   end
 
-  ::ActiveAdmin::ResourceDSL.include(Dsl)
+  ::ActiveAdmin::ResourceDSL.send(:include, Dsl)
 end
