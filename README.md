@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/bolshakov/activeadmin_reform.svg?branch=master)](https://travis-ci.org/bolshakov/activeadmin_reform)
-[![Test Coverage](https://codeclimate.com/github/bolshakov/activeadmin_reform/badges/coverage.svg)](https://codeclimate.com/github/bolshakov/activeadmin_reform/coverage)
-[![Code Climate](https://codeclimate.com/github/bolshakov/activeadmin_reform/badges/gpa.svg)](https://codeclimate.com/github/bolshakov/activeadmin_reform)
-[![Gem Version](https://badge.fury.io/rb/activeadmin_reform.svg)](http://badge.fury.io/rb/activeadmin_reform)
+[![Build Status](https://travis-ci.org/bolshakov/activeadmin-reform.svg?branch=master)](https://travis-ci.org/bolshakov/activeadmin-reform)
+[![Test Coverage](https://codeclimate.com/github/bolshakov/activeadmin-reform/badges/coverage.svg)](https://codeclimate.com/github/bolshakov/activeadmin-reform/coverage)
+[![Code Climate](https://codeclimate.com/github/bolshakov/activeadmin-reform/badges/gpa.svg)](https://codeclimate.com/github/bolshakov/activeadmin-reform)
+[![Gem Version](https://badge.fury.io/rb/activeadmin-reform.svg)](http://badge.fury.io/rb/activeadmin-reform)
 
 # ActiveAdmin Reform
 
@@ -17,7 +17,7 @@ and simplifies building test objects.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activeadmin_reform'
+gem 'activeadmin-reform'
 ```
 
 And then execute:
@@ -26,7 +26,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install activeadmin_reform
+    $ gem install activeadmin-reform
 
 ## Usage
 
