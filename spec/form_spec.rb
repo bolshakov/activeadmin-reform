@@ -104,7 +104,6 @@ RSpec.describe 'form', type: :feature do
         config.filters = false
         permit_params :surname if Rails::VERSION::MAJOR == 4
         form_class CommenterForm
-        decorate_with AuthorDecorator
 
         form decorate: true do |f|
           f.semantic_errors(*f.object.errors.keys)
@@ -124,10 +123,10 @@ RSpec.describe 'form', type: :feature do
       Rails.application.reload_routes!
     end
 
-    it 'uses the setter and may be decorated with drapper' do
+    it 'uses the setter' do
       visit '/admin/authors/new'
       fill_in 'Surname', with: 'Doe'
-      click_link_or_button 'Create Author'
+      click_link_or_button 'Create Commenter'
 
       expect(page).to have_content('Commenter was successfully created.')
       expect(page).to have_content('Doe')
