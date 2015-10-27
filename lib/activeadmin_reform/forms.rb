@@ -1,12 +1,17 @@
 require 'active_support/concern'
 require_relative 'resource_controller/data_access'
 
+#
 module ActiveAdminReform
+  # Reform integration helpers
   module Forms
     extend ActiveSupport::Concern
 
     protected
 
+    # Wrap resource into Reform::Form if needed
+    # @param resource [ActiveRecord::Base]
+    # @return [ActiveRecord::Base, Reform::Form]
     def apply_form(resource)
       apply_form? ? form_class.new(resource) : resource
     end

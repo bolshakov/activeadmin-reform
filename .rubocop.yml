@@ -6,13 +6,11 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 5
+AllCops:
+  Exclude:
+    - spec/dummy/**/*
+
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
-  Max: 123
+  Max: 120
 
-# Offense count: 1
-# Configuration parameters: Exclude.
-Style/FileName:
-  Exclude:
-    - 'lib/activeadmin-reform.rb'
