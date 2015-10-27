@@ -12,4 +12,6 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara'
+
+  gem 'codeclimate-test-reporter', require: nil
 end
