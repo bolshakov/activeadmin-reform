@@ -5,7 +5,7 @@ require File.expand_path 'spec/support/detect_rails_version', File.dirname(__FIL
 gemspec
 group :test do
   gem 'rails', detect_rails_version
-  gem 'activeadmin', github: 'activeadmin/activeadmin'
+  gem 'activeadmin', github: 'activeadmin'
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'test-unit', '~> 3.0' # Rails 3.2 support
