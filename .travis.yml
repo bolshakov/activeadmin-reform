@@ -19,4 +19,4 @@ script:
 
 addons:
   code_climate:
-    repo_token: FIXME
+    repo_token: a9e62b8c65b1cfceeb19270c36d4a4bb73d1a279b25d711290667ea3f36b4198
