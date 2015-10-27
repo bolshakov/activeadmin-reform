@@ -6,8 +6,4 @@ class CommenterForm < Reform::Form
   def surname=(value)
     model.last_name = value
   end
-
-  def surname
-    model.last_name
-  end
 end

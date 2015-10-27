@@ -12,6 +12,7 @@ RUBY
 
 copy_file(File.expand_path('../../templates/author_form.rb', __FILE__), 'app/models/author_form.rb')
 copy_file(File.expand_path('../../templates/commenter_form.rb', __FILE__), 'app/models/commenter_form.rb')
+copy_file(File.expand_path('../../templates/author_decorator.rb', __FILE__), 'app/models/author_decorator.rb')
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 

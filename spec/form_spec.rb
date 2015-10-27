@@ -26,18 +26,42 @@ RSpec.describe 'form', type: :feature do
       Rails.application.reload_routes!
     end
 
-    it 'uses validation defined in reform' do
-      visit '/admin/authors/new'
-      click_link_or_button 'Create Author'
+    describe '#new' do
+      it 'uses validation defined in reform' do
+        visit '/admin/authors/new'
+        expect(page).not_to have_content("Last name can't be blank")
+        click_link_or_button 'Create Author'
 
-      expect(page).not_to have_content('Author was successfully created.')
-      expect(page).to have_content("Last name can't be blank")
+        expect(page).not_to have_content('Author was successfully created.')
+        expect(page).to have_content("Last name can't be blank")
 
-      fill_in 'Last name', with: 'Jane Doe'
-      click_link_or_button 'Update Author'
+        fill_in 'Last name', with: 'Jane Doe'
+        click_link_or_button 'Update Author'
 
-      expect(page).to have_content('Author was successfully updated.')
-      expect(page).to have_content('Jane Doe')
+        expect(page).to have_content('Author was successfully updated.')
+        expect(page).to have_content('Jane Doe')
+      end
+    end
+
+    describe '#edit' do
+      let!(:author) do
+        Author.create!(name: 'Jane')
+      end
+
+      it 'uses validation defined in reform' do
+        visit "/admin/authors/#{author.id}/edit"
+        expect(page).not_to have_content("Last name can't be blank")
+        click_link_or_button 'Update Author'
+
+        expect(page).not_to have_content('Author was successfully created.')
+        expect(page).to have_content("Last name can't be blank")
+
+        fill_in 'Last name', with: 'Jane Doe'
+        click_link_or_button 'Update Author'
+
+        expect(page).to have_content('Author was successfully updated.')
+        expect(page).to have_content('Jane Doe')
+      end
     end
   end
 
@@ -80,8 +104,9 @@ RSpec.describe 'form', type: :feature do
         config.filters = false
         permit_params :surname if Rails::VERSION::MAJOR == 4
         form_class CommenterForm
+        decorate_with AuthorDecorator
 
-        form do |f|
+        form decorate: true do |f|
           f.semantic_errors(*f.object.errors.keys)
           f.inputs do
             f.input :surname
@@ -99,10 +124,10 @@ RSpec.describe 'form', type: :feature do
       Rails.application.reload_routes!
     end
 
-    it 'uses the setter' do
+    it 'uses the setter and may be decorated with drapper' do
       visit '/admin/authors/new'
       fill_in 'Surname', with: 'Doe'
-      click_link_or_button 'Create Commenter'
+      click_link_or_button 'Create Author'
 
       expect(page).to have_content('Commenter was successfully created.')
       expect(page).to have_content('Doe')
