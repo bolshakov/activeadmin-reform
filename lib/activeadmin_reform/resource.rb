@@ -15,5 +15,5 @@ module ActiveAdminReform
     end
   end
 
-  ::ActiveAdmin::Resource.include(Resource)
+  ::ActiveAdmin::Resource.send(:include, Resource)
 end

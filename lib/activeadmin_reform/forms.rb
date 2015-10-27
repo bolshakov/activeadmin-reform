@@ -30,5 +30,5 @@ module ActiveAdminReform
     end
   end
 
-  ::ActiveAdmin::ResourceController.include(Forms)
+  ::ActiveAdmin::ResourceController.send(:include, Forms)
 end
