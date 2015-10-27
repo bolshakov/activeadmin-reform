@@ -3,7 +3,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = 'activeadmin_reform'
+  spec.name          = 'activeadmin-reform'
   spec.version       = '0.1.0'
   spec.authors       = ['Artyom Bolshakov']
   spec.email         = ['abolshakov@spbtv.com']
