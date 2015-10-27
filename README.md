@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/bolshakov/activeadmin_reform.svg?branch=master)](https://travis-ci.org/bolshakov/activeadmin_reform)
+[![Test Coverage](https://codeclimate.com/github/bolshakov/activeadmin_reform/badges/coverage.svg)](https://codeclimate.com/github/bolshakov/activeadmin_reform/coverage)
+[![Code Climate](https://codeclimate.com/github/bolshakov/activeadmin_reform/badges/gpa.svg)](https://codeclimate.com/github/bolshakov/activeadmin_reform)
+[![Gem Version](https://badge.fury.io/rb/activeadmin_reform.svg)](http://badge.fury.io/rb/activeadmin_reform)
+
 # ActiveAdmin Reform
 
 This gem adds integration between ActiveAdmin and [Reform](https://github.com/apotonick/reform). So you may 
