@@ -5,7 +5,7 @@ RSpec.describe 'form', type: :feature do
     before do
       ActiveAdmin.register Author do
         config.filters = false
-        permit_params :last_name
+        permit_params :last_name if Rails::VERSION::MAJOR == 4
         form_class AuthorForm
 
         form do |f|
@@ -45,7 +45,7 @@ RSpec.describe 'form', type: :feature do
     before do
       ActiveAdmin.register Author do
         config.filters = false
-        permit_params :last_name
+        permit_params :last_name if Rails::VERSION::MAJOR == 4
         form_class false
 
         form do |f|
@@ -78,7 +78,7 @@ RSpec.describe 'form', type: :feature do
     before do
       ActiveAdmin.register Author do
         config.filters = false
-        permit_params :surname
+        permit_params :surname if Rails::VERSION::MAJOR == 4
         form_class CommenterForm
 
         form do |f|

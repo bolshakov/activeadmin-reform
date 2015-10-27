@@ -30,7 +30,7 @@ do_after_bundle = lambda do
   rake 'db:migrate'
 end
 
-if Rails.gem_version >= Gem::Version.new('4.2')
+if Rails.respond_to?(:gem_version) && Rails.gem_version >= Gem::Version.new('4.2')
   after_bundle(&do_after_bundle)
 else
   run 'bundle install'
