@@ -29,6 +29,19 @@ module ActiveAdmin
             super(resource, attributes)
           end
         end
+
+        # Calls all the appropriate callbacks and then saves the new resource.
+        #
+        # @param [ActiveRecord::Base] object The new resource to save
+        #
+        # @return [void]
+        def save_resource(object)
+          if resource.is_a?(::Reform::Form)
+            super unless object.errors.any?
+          else
+            super
+          end
+        end
       end
 
       ::ActiveAdmin::ResourceController.send(:include, DataAccess)

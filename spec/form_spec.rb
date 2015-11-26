@@ -32,13 +32,13 @@ RSpec.describe 'form', type: :feature do
         expect(page).not_to have_content("Last name can't be blank")
         click_link_or_button 'Create Author'
 
-        expect(page).not_to have_content('Author was successfully created.')
+        expect(page).not_to have_content('Author was successfully')
         expect(page).to have_content("Last name can't be blank")
 
         fill_in 'Last name', with: 'Jane Doe'
-        click_link_or_button 'Update Author'
+        click_link_or_button 'Create Author'
 
-        expect(page).to have_content('Author was successfully updated.')
+        expect(page).to have_content('Author was successfully created.')
         expect(page).to have_content('Jane Doe')
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe 'form', type: :feature do
         expect(page).not_to have_content("Last name can't be blank")
         click_link_or_button 'Update Author'
 
-        expect(page).not_to have_content('Author was successfully created.')
+        expect(page).not_to have_content('Author was successfully')
         expect(page).to have_content("Last name can't be blank")
 
         fill_in 'Last name', with: 'Jane Doe'
