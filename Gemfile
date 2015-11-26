@@ -5,14 +5,14 @@ require File.expand_path 'spec/support/detect_rails_version', File.dirname(__FIL
 gemspec
 group :test do
   gem 'rails', detect_rails_version
-  gem 'activeadmin', github: 'activeadmin'
-  gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'activeadmin', github: 'activeadmin', ref: 'ba285ea2fc23ade108ed582134cae8c641f910a4'
+  gem 'sqlite3', '~> 1.3.11'
+  gem 'rspec-rails', '~> 3.4.0'
   gem 'test-unit', '~> 3.0' # Rails 3.2 support
 
-  gem 'launchy'
-  gem 'database_cleaner'
-  gem 'capybara'
+  gem 'launchy', '~> 2.4.3'
+  gem 'database_cleaner', '~> 1.5.1'
+  gem 'capybara', '~> 2.5.0'
 
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', '~> 0.4.8', require: nil
 end
