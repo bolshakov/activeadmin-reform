@@ -123,13 +123,31 @@ RSpec.describe 'form', type: :feature do
       Rails.application.reload_routes!
     end
 
-    it 'uses the setter' do
-      visit '/admin/authors/new'
-      fill_in 'Surname', with: 'Doe'
-      click_link_or_button 'Create Commenter'
+    describe '#new' do
+      it 'uses the setter' do
+        visit '/admin/authors/new'
+        fill_in 'Surname', with: 'Doe'
+        click_link_or_button 'Create Commenter'
 
-      expect(page).to have_content('Commenter was successfully created.')
-      expect(page).to have_content('Doe')
+        expect(page).to have_content('Commenter was successfully created.')
+        expect(page).to have_content('Doe')
+      end
+    end
+
+    describe '#edit' do
+      let!(:author) do
+        Author.create!(last_name: 'Jane')
+      end
+
+      it 'uses the setter' do
+        visit "/admin/authors/#{author.id}/edit"
+        expect(page).to have_field 'Surname', with: 'Jane'
+        fill_in 'Surname', with: 'Doe'
+        click_link_or_button 'Update Commenter'
+
+        expect(page).to have_content('Commenter was successfully updated.')
+        expect(page).to have_content('Doe')
+      end
     end
   end
 end
