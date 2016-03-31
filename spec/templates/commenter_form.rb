@@ -1,9 +1,11 @@
 require 'reform'
 
 class CommenterForm < Reform::Form
-  property :surname, virtual: true
+  property :surname, virtual: true, prepopulator: ->(_) { self.surname = model.last_name }
 
-  def surname=(value)
-    model.last_name = value
+  def sync
+    super.tap do
+      model.last_name = surname
+    end
   end
 end
