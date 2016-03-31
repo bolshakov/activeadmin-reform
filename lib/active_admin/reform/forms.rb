@@ -16,15 +16,19 @@ module ActiveAdmin
       # @return [ActiveRecord::Base, Reform::Form]
       def apply_form(resource)
         if apply_form?
-          form_class.new(resource).tap do |form|
-            form.prepopulate! if %w(new edit).include?(action_name)
-          end
+          form = form_class.new(resource)
+          form.prepopulate! if prepopulate_form?
+          form
         else
           resource
         end
       end
 
       private
+
+      def prepopulate_form?
+        %w(new edit).include?(action_name)
+      end
 
       def apply_form?
         case action_name
