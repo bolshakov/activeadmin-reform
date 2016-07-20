@@ -25,6 +25,9 @@ ActiveAdmin.application.current_user_method = false
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'capybara/poltergeist'
+
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
@@ -41,3 +44,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+require 'reform/form/active_model/validations'
+Reform::Form.include Reform::Form::ActiveModel::Validations

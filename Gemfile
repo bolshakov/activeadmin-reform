@@ -13,6 +13,7 @@ group :test do
   gem 'launchy', '~> 2.4.3'
   gem 'database_cleaner', '~> 1.5.1'
   gem 'capybara', '~> 2.5.0'
+  gem 'poltergeist'
 
   gem 'codeclimate-test-reporter', '~> 0.4.8', require: nil
 end

@@ -127,9 +127,9 @@ RSpec.describe 'form', type: :feature do
       it 'uses the setter' do
         visit '/admin/authors/new'
         fill_in 'Surname', with: 'Doe'
-        click_link_or_button 'Create Commenter'
+        click_link_or_button 'Create Author'
 
-        expect(page).to have_content('Commenter was successfully created.')
+        expect(page).to have_content('Author was successfully created.')
         expect(page).to have_content('Doe')
       end
     end
@@ -143,11 +143,59 @@ RSpec.describe 'form', type: :feature do
         visit "/admin/authors/#{author.id}/edit"
         expect(page).to have_field 'Surname', with: 'Jane'
         fill_in 'Surname', with: 'Doe'
-        click_link_or_button 'Update Commenter'
+        click_link_or_button 'Update Author'
 
-        expect(page).to have_content('Commenter was successfully updated.')
+        expect(page).to have_content('Author was successfully updated.')
         expect(page).to have_content('Doe')
       end
+    end
+  end
+
+  context 'nested form' do
+    before do
+      ActiveAdmin.register Post do
+        config.filters = false
+        form_class PostForm
+        permit_params :text, comments_attributes: [:text] if Rails::VERSION::MAJOR == 4
+
+        show do
+          attributes_table do
+            row :text
+            row :comments do |post|
+              post.comments.map(&:text).join('; ')
+            end
+          end
+        end
+
+        form do |f|
+          f.semantic_errors(*f.object.errors.keys)
+          f.inputs do
+            f.input :text
+            f.has_many :comments do |cf|
+              cf.input :text
+            end
+          end
+          f.actions
+        end
+
+        Rails.application.reload_routes!
+      end
+    end
+
+    it 'uses the nested form', js: true do
+      visit '/admin/posts/new'
+      expect(page).to have_field 'Text', with: 'Initial post text'
+      fill_in 'Text', with: 'Changed post text'
+      within '.comments' do
+        click_link_or_button 'Add New Comment'
+        expect(page).to have_field 'Text', with: 'Initial comment text'
+        fill_in 'Text', with: 'Changed comment text'
+      end
+      click_link_or_button 'Create Post'
+
+      expect(page).to have_content('Post was successfully created.')
+      expect(page).to have_content('Changed post text')
+      expect(page).to have_content('Changed comment text')
     end
   end
 end
