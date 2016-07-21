@@ -6,9 +6,13 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
+inherit_gem:
+  spbtv_code_style: .rubocop.yml
+
 AllCops:
   Exclude:
     - spec/dummy/**/*
+    - spec/templates/*
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
