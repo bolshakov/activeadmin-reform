@@ -11,11 +11,10 @@ module ActiveAdmin
       module DataAccess
         extend ActiveSupport::Concern
 
-        # @param resource [ActiveRecord::Base]
+        # @param _resource [ActiveRecord::Base]
         # @return [ActiveRecord::Base, Reform::Form]
-        def apply_decorations(resource)
-          resource = super(resource)
-          apply_form(resource)
+        def apply_decorations(_resource)
+          apply_form(super)
         end
 
         # @param resource [ActiveRecord::Base, Reform::Form]
@@ -23,10 +22,10 @@ module ActiveAdmin
         # @return [ActiveRecord::Base, Reform::Form]
         def assign_attributes(resource, attributes)
           if resource.is_a?(::Reform::Form)
-            resource.validate(*attributes) unless action_name == 'new'
+            resource.validate(*attributes) unless %w(new edit).include?(action_name)
             resource
           else
-            super(resource, attributes)
+            super
           end
         end
 
