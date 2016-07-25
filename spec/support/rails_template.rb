@@ -26,6 +26,7 @@ do_after_bundle = lambda do
   generate :model, 'post text --no-test-framework'
   generate :model, 'comment post:references text --no-test-framework'
   inject_into_file 'app/models/post.rb', <<-RUBY, after: "Base\n"
+    validates :text, presence: true
     has_many :comments
   RUBY
   generate :'active_admin:install --skip-users'

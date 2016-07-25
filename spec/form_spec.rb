@@ -197,5 +197,13 @@ RSpec.describe 'form', type: :feature do
       expect(page).to have_content('Changed post text')
       expect(page).to have_content('Changed comment text')
     end
+
+    it 'fails when the model fails to save' do
+      visit '/admin/posts/new'
+      expect(page).to have_field 'Text', with: 'Initial post text'
+      fill_in 'Text', with: ''
+      click_link_or_button 'Create Post'
+      expect(page).to have_content("Text can't be blank")
+    end
   end
 end
