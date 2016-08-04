@@ -10,6 +10,12 @@ module ActiveAdmin
 
       delegate :new_record?, to: :model
 
+      def save_model
+        super.tap do
+          errors.merge!(model.errors, [])
+        end
+      end
+
       included do
         include ::Reform::Form::ModelReflections
         include ::Reform::Form::ActiveRecord
