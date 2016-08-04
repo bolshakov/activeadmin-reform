@@ -30,12 +30,14 @@ Or install it yourself as:
 
 ## Usage
 
-Define your from object
+Define your form object and include our mixin (`ActiveAdmin::Reform::ActiveRecord`) into it:
  
 ```ruby
 require 'reform'
 
 class AuthorForm < Reform::Form
+  include ActiveAdmin::Reform::ActiveRecord
+
   property :last_name, validates: { presence: true }
   property :name
 end
