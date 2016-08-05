@@ -10,10 +10,18 @@ module ActiveAdmin
 
       delegate :new_record?, to: :model
 
-      def save_model
-        super.tap do
+      # @return [Boolean]
+      # Used here - https://github.com/activeadmin/activeadmin/blob/487f976/lib/active_admin/resource_controller/data_access.rb#L160
+      def save
+        validate({}) && super.tap do
           errors.merge!(model.errors, [])
         end
+      end
+
+      # @param attributes [Hash]
+      # Used here - https://github.com/activeadmin/activeadmin/blob/487f976/lib/active_admin/resource_controller/data_access.rb#L301
+      def assign_attributes(attributes)
+        deserialize(attributes)
       end
 
       included do
