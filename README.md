@@ -38,6 +38,8 @@ require 'reform'
 class AuthorForm < Reform::Form
   include ActiveAdmin::Reform::ActiveRecord
 
+  model :author
+
   property :last_name, validates: { presence: true }
   property :name
 end
