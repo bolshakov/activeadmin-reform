@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'activeadmin-reform'
-  spec.version       = '0.2.1'
+  spec.version       = '0.3.0'
   spec.authors       = ['Artyom Bolshakov']
   spec.email         = ['abolshakov@spbtv.com']
 
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '>= 3.2'
   spec.add_dependency 'disposable', '>= 0.2.0'
   spec.add_dependency 'reform', '~> 2.2.1'
-  spec.add_dependency 'reform-rails'
+  spec.add_dependency 'reform-rails', '~> 0.1.7'
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.4'
