@@ -15,7 +15,7 @@ module ActiveAdmin
       # @param resource [ActiveRecord::Base]
       # @return [ActiveRecord::Base, Reform::Form]
       def apply_form(resource)
-        if apply_form?
+        if apply_form?(resource)
           form = form_class.new(resource)
           form.prepopulate! if prepopulate_form?
           form
@@ -30,10 +30,10 @@ module ActiveAdmin
         %w(new edit).include?(action_name)
       end
 
-      def apply_form?
+      def apply_form?(resource)
         case action_name
         when 'new', 'edit', 'update', 'create'
-          form_class.present?
+          form_class.present? && !resource.is_a?(::Reform::Form)
         end
       end
 
