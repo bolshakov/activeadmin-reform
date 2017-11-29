@@ -6,6 +6,7 @@ gemspec
 group :test do
   gem 'rails', detect_rails_version
   gem 'activeadmin', github: 'activeadmin', ref: 'ba285ea2fc23ade108ed582134cae8c641f910a4'
+  gem 'jquery-ui-rails', '5.0.5'
   gem 'sqlite3', '~> 1.3.11'
   gem 'rspec-rails', '~> 3.4.0'
   gem 'test-unit', '~> 3.0' # Rails 3.2 support

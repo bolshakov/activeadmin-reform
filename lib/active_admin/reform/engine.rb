@@ -10,8 +10,6 @@ module ActiveAdmin
         require 'active_admin'
         require_relative 'dsl'
         require_relative 'forms'
-
-        ActiveAdmin::FormBuilder.prepend FormBuilder
       end
     end
   end
