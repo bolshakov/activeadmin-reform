@@ -4,12 +4,12 @@ rvm:
   - ruby-head
 env:
   matrix:
-    - RAILS_VERSION=3.2
-    - RAILS_VERSION=4.2.4
-    - RAILS_VERSION=master
+    - RAILS_VERSION=3.2 ACTIVEADMIN_GIT_REF=ba285ea2fc23ade108ed582134cae8c641f910a4
+    - RAILS_VERSION=4.2.4 ACTIVEADMIN_GIT_REF=15eb4a05b2ee759b7d03ceaaa92d070986a1c282
+    - RAILS_VERSION=master ACTIVEADMIN_GIT_REF=15eb4a05b2ee759b7d03ceaaa92d070986a1c282
 matrix:
   allow_failures:
-    - env: RAILS_VERSION=master
+    - env: RAILS_VERSION=master ACTIVEADMIN_GIT_REF=15eb4a05b2ee759b7d03ceaaa92d070986a1c282
     - rvm: ruby-head
 before_install: gem install bundler -v 1.10.6
 install:
