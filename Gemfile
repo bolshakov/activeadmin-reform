@@ -5,7 +5,7 @@ require File.expand_path 'spec/support/detect_rails_version', File.dirname(__FIL
 gemspec
 group :test do
   gem 'rails', detect_rails_version
-  gem 'activeadmin', github: 'activeadmin', ref: ENV['ACTIVEADMIN_GIT_REF']
+  gem 'activeadmin', ENV['ACTIVEADMIN_VERSION']
   gem 'jquery-ui-rails', '5.0.5'
   gem 'sqlite3', '~> 1.3.11'
   gem 'rspec-rails'
