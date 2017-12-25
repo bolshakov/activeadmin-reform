@@ -27,6 +27,12 @@ module ActiveAdmin
       included do
         include ::Reform::Form::ModelReflections
         include ::Reform::Form::ActiveRecord
+
+        def self.reflect_on_association(name)
+          reflection = model_class.reflect_on_association(name) || return
+          property = definitions[name.to_s]
+          (@reflections ||= {})[name] ||= Reflection.new(reflection, (property[:nested] if property))
+        end
       end
 
       # Those methods are being used by activeadmin and are proxied to an inferred from name model

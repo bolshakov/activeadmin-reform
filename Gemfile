@@ -5,9 +5,10 @@ require File.expand_path 'spec/support/detect_rails_version', File.dirname(__FIL
 gemspec
 group :test do
   gem 'rails', detect_rails_version
-  gem 'activeadmin', github: 'activeadmin', ref: 'ba285ea2fc23ade108ed582134cae8c641f910a4'
+  gem 'activeadmin', ENV['ACTIVEADMIN_VERSION']
+  gem 'jquery-ui-rails', '5.0.5'
   gem 'sqlite3', '~> 1.3.11'
-  gem 'rspec-rails', '~> 3.4.0'
+  gem 'rspec-rails'
   gem 'test-unit', '~> 3.0' # Rails 3.2 support
 
   gem 'launchy', '~> 2.4.3'
