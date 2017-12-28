@@ -1,3 +1,7 @@
+# 0.4.0
+
+* Support ActiveAdmin 1.2.0
+
 # 0.3.0
 
 * Form pre-population from URL parameters in ActiveAdmin controllers
