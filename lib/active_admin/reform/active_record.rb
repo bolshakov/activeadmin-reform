@@ -28,10 +28,13 @@ module ActiveAdmin
         include ::Reform::Form::ModelReflections
         include ::Reform::Form::ActiveRecord
 
-        def self.reflect_on_association(name)
-          reflection = model_class.reflect_on_association(name) || return
-          property = definitions[name.to_s]
-          (@reflections ||= {})[name] ||= Reflection.new(reflection, (property[:nested] if property))
+        class << self
+          def reflect_on_association(name)
+            reflection = model_class.reflect_on_association(name) || return
+            property = definitions[name.to_s]
+            @reflections ||= {}
+            @reflections[name] ||= Reflection.new(reflection, (property[:nested] if property))
+          end
         end
       end
 
