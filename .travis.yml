@@ -1,23 +1,19 @@
+---
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
+- ruby-head
+allow_failures:
+  rvm:
   - ruby-head
-env:
-  matrix:
-    - RAILS_VERSION=3.2 ACTIVEADMIN_VERSION=1.0.0.pre3
-    - RAILS_VERSION=4.2.4 ACTIVEADMIN_VERSION=1.2.0
-    - RAILS_VERSION=master ACTIVEADMIN_VERSION=1.2.0
-matrix:
-  allow_failures:
-    - env: RAILS_VERSION=master ACTIVEADMIN_VERSION=1.2.0
-    - rvm: ruby-head
-before_install: gem install bundler -v 1.10.6
-install:
-  - bundle install --retry=3
+before_script:
+- "./bin/setup"
 script:
-  - bundle exec rake
-  - bundle exec rubocop
-
+- bundle exec rake spec
+- bundle exec rubocop --fail-level C
+gemfile:
+- gemfiles/rails_4.2.10_active_admin_1.2.1.gemfile
+- gemfiles/rails_3.2.22.5_active_admin_1.0.0.pre5.gemfile
 addons:
   code_climate:
     repo_token: c326cca5984d0e32d2c6b5d9b985756ee9312f63fc6a9480fc9cfa55c454d68a
