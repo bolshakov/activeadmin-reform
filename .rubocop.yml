@@ -11,8 +11,9 @@ inherit_gem:
 
 AllCops:
   Exclude:
-    - spec/dummy/**/*
-    - spec/templates/*
+    - "spec/dummy/**/*"
+    - "spec/templates/*"
+    - "gemfiles/**/*"
 
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:

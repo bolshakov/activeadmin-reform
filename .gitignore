@@ -8,3 +8,4 @@
 /spec/reports/
 /spec/dummy/
 /tmp/
+gemfiles/.bundle

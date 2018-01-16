@@ -1,21 +1,18 @@
-require 'codeclimate-test-reporter'
-CodeClimate::TestReporter.start
-
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 $LOAD_PATH << File.expand_path('../support', __FILE__)
-require 'detect_rails_version'
 
-ENV['BUNDLE_GEMFILE'] = File.expand_path('../../Gemfile', __FILE__)
 require 'bundler'
 Bundler.setup
 
 ENV['RAILS_ENV'] = 'test'
 rails_root = File.expand_path('../dummy', __FILE__)
-
-# Create the test app if it doesn't exists
-system 'rake setup' unless File.exist?(rails_root)
+require 'fileutils'
+FileUtils.rm_r(rails_root) if File.exist?(rails_root)
+system 'rake setup'
 
 require rails_root + '/config/environment.rb'
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
 # Disabling authentication in specs so that we don't have to worry about
 # it allover the place
@@ -26,6 +23,7 @@ require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'database_cleaner'
 
 Capybara.javascript_driver = :poltergeist
 
