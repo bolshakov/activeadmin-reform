@@ -2,10 +2,6 @@
 language: ruby
 rvm:
 - 2.2.2
-- ruby-head
-allow_failures:
-  rvm:
-  - ruby-head
 before_script:
 - "./bin/setup"
 script:
