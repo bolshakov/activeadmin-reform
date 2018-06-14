@@ -1,6 +1,6 @@
 require 'yaml'
 
-ruby_versions = %w(2.2.2 ruby-head)
+ruby_versions = %w(2.2.2)
 
 [
   { rails: '3.2.22.5', active_admin: '1.0.0.pre5' },
@@ -16,9 +16,6 @@ end
 travis = ::YAML.dump(
   'language' => 'ruby',
   'rvm' => ruby_versions,
-  'allow_failures' => {
-    'rvm' => ['ruby-head']
-  },
   'before_script' => [
     './bin/setup',
    ],
