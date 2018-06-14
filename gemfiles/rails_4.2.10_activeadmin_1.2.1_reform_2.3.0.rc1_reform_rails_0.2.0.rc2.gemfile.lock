@@ -5,8 +5,8 @@ PATH
       activeadmin (>= 1.0.0.pre5, <= 1.2.1)
       disposable (>= 0.2.0)
       rails (>= 3.2.22.5, <= 4.2.10)
-      reform (~> 2.2.1)
-      reform-rails (~> 0.1.7)
+      reform (<= 2.3.0.rc1)
+      reform-rails (<= 0.2.0.rc2)
 
 GEM
   remote: https://rubygems.org/
@@ -197,12 +197,13 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    reform (2.2.4)
-      disposable (>= 0.4.1)
+    reform (2.3.0.rc1)
+      disposable (>= 0.4.2, < 0.5.0)
       representable (>= 2.4.0, < 3.1.0)
-    reform-rails (0.1.7)
+      uber (< 0.2.0)
+    reform-rails (0.2.0.rc2)
       activemodel (>= 3.2)
-      reform (>= 2.2.0)
+      reform (>= 2.3.0.rc1, < 3.0.0)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -293,6 +294,8 @@ DEPENDENCIES
   poltergeist
   rails (= 4.2.10)
   rake (~> 10.0)
+  reform (= 2.3.0.rc1)
+  reform-rails (= 0.2.0.rc2)
   rspec (~> 3.4)
   rspec-rails
   spbtv_code_style (~> 1.4.1)

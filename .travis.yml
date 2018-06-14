@@ -8,8 +8,9 @@ script:
 - bundle exec rake spec
 - bundle exec rubocop --fail-level C
 gemfile:
-- gemfiles/rails_4.2.10_active_admin_1.2.1.gemfile
-- gemfiles/rails_3.2.22.5_active_admin_1.0.0.pre5.gemfile
+- gemfiles/rails_4.2.10_activeadmin_1.2.1_reform_2.3.0.rc1_reform_rails_0.2.0.rc2.gemfile
+- gemfiles/rails_4.2.10_activeadmin_1.2.1_reform_2.2.4_reform_rails_0.1.7.gemfile
+- gemfiles/rails_3.2.22.5_activeadmin_1.0.0.pre5_reform_2.2.4_reform_rails_0.1.7.gemfile
 addons:
   code_climate:
     repo_token: c326cca5984d0e32d2c6b5d9b985756ee9312f63fc6a9480fc9cfa55c454d68a
