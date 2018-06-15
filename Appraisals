@@ -1,24 +1,21 @@
 require 'yaml'
 
-ruby_versions = %w(2.2.2 ruby-head)
+ruby_versions = %w(2.2.2)
 
 [
-  { rails: '3.2.22.5', active_admin: '1.0.0.pre5' },
-  { rails: '4.2.10', active_admin: '1.2.1' },
-  # { rails: '5.1.4', active_admin: '1.2.1' },
+  { rails: '3.2.22.5', activeadmin: '1.0.0.pre5', reform: '2.2.4', 'reform-rails': '0.1.7' },
+  { rails: '4.2.10', activeadmin: '1.2.1', reform: '2.2.4', 'reform-rails': '0.1.7' },
+  { rails: '4.2.10', activeadmin: '1.2.1', reform: '2.3.0.rc1', 'reform-rails': '0.2.0.rc2' },
+  # { rails: '5.1.4', activeadmin: '1.2.1', reform: '2.3.0.rc1', 'reform-rails': '0.2.0.rc2' },
 ].each do |deps|
-  appraise "rails_#{deps[:rails]}_active_admin_#{deps[:active_admin]}" do
-    gem 'rails', deps[:rails]
-    gem 'activeadmin', deps[:active_admin]
+  appraise deps.map { |name, requirement| "#{name}-#{requirement}" }.join('_') do
+    deps.each { |name, requirement| gem name, requirement }
   end
 end
 
 travis = ::YAML.dump(
   'language' => 'ruby',
   'rvm' => ruby_versions,
-  'allow_failures' => {
-    'rvm' => ['ruby-head']
-  },
   'before_script' => [
     './bin/setup',
    ],

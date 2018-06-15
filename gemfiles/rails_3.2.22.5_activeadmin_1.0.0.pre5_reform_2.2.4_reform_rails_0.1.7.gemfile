@@ -4,5 +4,7 @@ source "https://rubygems.org"
 
 gem "rails", "3.2.22.5"
 gem "activeadmin", "1.0.0.pre5"
+gem "reform", "2.2.4"
+gem "reform-rails", "0.1.7"
 
 gemspec path: "../"

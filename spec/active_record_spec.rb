@@ -13,7 +13,7 @@ RSpec.describe ActiveAdmin::Reform::ActiveRecord do
       it do
         expect { save }.not_to change(Post, :count)
         expect(save).to be_falsey
-        expect(form.errors).to be_any
+        expect(form.errors).not_to be_empty
         expect(form.errors[:text]).to contain_exactly("can't be blank")
       end
     end
@@ -24,7 +24,7 @@ RSpec.describe ActiveAdmin::Reform::ActiveRecord do
       it do
         expect { save }.to change(Post, :count)
         expect(save).to be_truthy
-        expect(form.errors).not_to be_any
+        expect(form.errors).to be_empty
       end
     end
   end
