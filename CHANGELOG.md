@@ -1,3 +1,7 @@
+# 0.5.0
+
+* Support Reform s2.3.0.rc1
+
 # 0.4.0
 
 * Support ActiveAdmin 1.2.0
