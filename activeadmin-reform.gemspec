@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rails', ['>= 3.2.22.5', '<= 4.2.10']
-  spec.add_dependency 'activeadmin', ['>= 1.0.0.pre5', '<= 1.2.1']
+  spec.add_dependency 'activeadmin', ['>= 1.0.0.pre5', '<= 2.0.0.alpha']
   spec.add_dependency 'disposable', '>= 0.2.0'
   spec.add_dependency 'reform', '<= 2.3.0.rc1'
   spec.add_dependency 'reform-rails', '<= 0.2.0.rc2'
