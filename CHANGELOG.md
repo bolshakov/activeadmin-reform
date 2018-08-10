@@ -1,3 +1,7 @@
+# 0.6.0
+
+* Support Rails 5
+
 # 0.5.0
 
 * Support Reform s2.3.0.rc1
