@@ -4,9 +4,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'activeadmin-reform'
-  spec.version       = '0.5.0'
+  spec.version       = '0.6.0'
   spec.authors       = ['Artyom Bolshakov']
-  spec.email         = ['abolshakov@spbtv.com']
+  spec.email         = ['either.free@gmail.com']
 
   spec.summary       = 'Integrates ActiveAdmin with Reform'
   spec.description   = 'Provides ability to use form object in your ActiveAdmin application'
