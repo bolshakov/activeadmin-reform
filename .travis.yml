@@ -2,15 +2,25 @@
 language: ruby
 rvm:
 - 2.2.2
+- 2.4.1
 before_script:
 - "./bin/setup"
 script:
 - bundle exec rake spec
 - bundle exec rubocop --fail-level C
 gemfile:
+- gemfiles/rails_5.2.0_activeadmin___github___activeadmin___reform_2.3.0.rc1_reform_rails_0.2.0.rc2_bootsnap_1.3.1.gemfile
 - gemfiles/rails_4.2.10_activeadmin___github___activeadmin___reform_2.3.0.rc1_reform_rails_0.2.0.rc2.gemfile
 - gemfiles/rails_4.2.10_activeadmin_1.2.1_reform_2.2.4_reform_rails_0.1.7.gemfile
 - gemfiles/rails_3.2.22.5_activeadmin_1.0.0.pre5_reform_2.2.4_reform_rails_0.1.7.gemfile
+matrix:
+  exclude:
+  - rvm: 2.2.2
+    gemfile: gemfiles/rails_5.2.0_activeadmin___github___activeadmin___reform_2.3.0.rc1_reform_rails_0.2.0.rc2_bootsnap_1.3.1.gemfile
+  - rvm: 2.2.2
+    gemfile: gemfiles/rails_4.2.10_activeadmin___github___activeadmin___reform_2.3.0.rc1_reform_rails_0.2.0.rc2.gemfile
+  - rvm: 2.4.1
+    gemfile: gemfiles/rails_3.2.22.5_activeadmin_1.0.0.pre5_reform_2.2.4_reform_rails_0.1.7.gemfile
 addons:
   code_climate:
     repo_token: c326cca5984d0e32d2c6b5d9b985756ee9312f63fc6a9480fc9cfa55c454d68a

@@ -20,15 +20,17 @@ run 'rm -rf spec'
 
 do_after_bundle = lambda do
   generate :model, 'author name:string{10}:uniq last_name:string birthday:date --no-test-framework'
-  inject_into_file 'app/models/author.rb', <<-RUBY, after: "Base\n"
-    validates :name, length: { minimum: 2 }, allow_nil: true
-  RUBY
   generate :model, 'post text --no-test-framework'
   generate :model, 'comment post:references text --no-test-framework'
-  inject_into_file 'app/models/post.rb', <<-RUBY, after: "Base\n"
-    validates :text, presence: true
-    has_many :comments
-  RUBY
+  %w(Base ApplicationRecord).each do |base_class|
+    inject_into_file 'app/models/author.rb', <<-RUBY, after: "#{base_class}\n"
+      validates :name, length: { minimum: 2 }, allow_nil: true
+    RUBY
+    inject_into_file 'app/models/post.rb', <<-RUBY, after: "#{base_class}\n"
+      validates :text, presence: true
+      has_many :comments
+    RUBY
+  end
   generate :'active_admin:install --skip-users'
   rake 'db:migrate'
 

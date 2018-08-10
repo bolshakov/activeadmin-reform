@@ -5,7 +5,7 @@ RSpec.describe 'form', type: :feature do
     before do
       ActiveAdmin.register Author do
         config.filters = false
-        permit_params :last_name if Rails::VERSION::MAJOR == 4
+        permit_params :last_name if Rails::VERSION::MAJOR >= 4
         form_class AuthorForm
 
         form do |f|
@@ -69,7 +69,7 @@ RSpec.describe 'form', type: :feature do
     before do
       ActiveAdmin.register Author do
         config.filters = false
-        permit_params :last_name if Rails::VERSION::MAJOR == 4
+        permit_params :last_name if Rails::VERSION::MAJOR >= 4
         form_class false
 
         form do |f|
@@ -102,7 +102,7 @@ RSpec.describe 'form', type: :feature do
     before do
       ActiveAdmin.register Author do
         config.filters = false
-        permit_params :surname if Rails::VERSION::MAJOR == 4
+        permit_params :surname if Rails::VERSION::MAJOR >= 4
         form_class CommenterForm
 
         form decorate: true do |f|
@@ -156,7 +156,7 @@ RSpec.describe 'form', type: :feature do
       ActiveAdmin.register Post do
         config.filters = false
         form_class PostForm
-        permit_params :text, comments_attributes: [:text] if Rails::VERSION::MAJOR == 4
+        permit_params :text, comments_attributes: [:text] if Rails::VERSION::MAJOR >= 4
 
         show do
           attributes_table do
