@@ -1,3 +1,9 @@
+# 0.7.0
+
+* Test against ruby 2.5.3 and 2.6.1
+* Drop support rails 3.x
+* Drop support ActiveAdmin < 1.2.1
+
 # 0.6.0
 
 * Support Rails 5

@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "4.2.10"
+gem "rails", "4.2.11"
 gem "activeadmin", "1.2.1"
 gem "reform", "2.2.4"
 gem "reform-rails", "0.1.7"
