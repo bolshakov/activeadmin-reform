@@ -1,4 +1,4 @@
-# 0.7.0
+# 1.0.0
 
 * Test against ruby 2.5.3 and 2.6.1
 * Drop support rails 3.x
