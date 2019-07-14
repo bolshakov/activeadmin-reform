@@ -1,17 +1,22 @@
 ---
 language: ruby
 rvm:
-- 2.5.3
-- 2.6.1
-before_script:
+- 2.5.5
+- 2.6.3
+before_install:
+- rvm use @global
+- gem uninstall bundler -x || true
+- gem install bundler --force --version=1.17.3
+- bundler --version
 - "./bin/setup"
 script:
 - bundle exec rake spec
 - bundle exec rubocop --fail-level C
 gemfile:
-- gemfiles/rails_5.2.2_activeadmin___github___activeadmin____ref___d95a9a853___reform_2.2.4_reform_rails_0.1.7_bootsnap_1.3.1.gemfile
-- gemfiles/rails_5.2.2_activeadmin___github___activeadmin____ref___d95a9a853___reform_2.3.0.rc1_reform_rails_0.2.0.rc2_bootsnap_1.3.1.gemfile
-- gemfiles/rails_4.2.11_activeadmin_1.2.1_reform_2.2.4_reform_rails_0.1.7.gemfile
+- gemfiles/rails_5.2.3_activeadmin_2.1.0_reform_2.3.0.rc1_reform_rails_0.2.0.rc2_bootsnap_1.3.1.gemfile
+- gemfiles/rails_5.2.3_activeadmin_2.0.0_reform_2.2.4_reform_rails_0.1.7_bootsnap_1.3.1.gemfile
+- gemfiles/rails_5.2.3_activeadmin_2.1.0_reform_2.2.4_reform_rails_0.1.7_bootsnap_1.3.1.gemfile
+- gemfiles/rails_4.2.11.1_activeadmin_1.4.3_reform_2.2.4_reform_rails_0.1.7.gemfile
 addons:
   code_climate:
     repo_token: c326cca5984d0e32d2c6b5d9b985756ee9312f63fc6a9480fc9cfa55c454d68a

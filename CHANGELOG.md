@@ -1,3 +1,9 @@
+# 1.1.0 
+
+* Test against ActiveAdmin 2.1
+* Test against ruby 2.5.5 and 2.6.3
+* Loosen ActiveAdmin and Rails requirements.
+
 # 1.0.0
 
 * Test against ruby 2.5.3 and 2.6.1
